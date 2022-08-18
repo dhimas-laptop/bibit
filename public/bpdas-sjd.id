@@ -1,0 +1,3 @@
+L;RN;Rain;mm;WS;Wind Speed;m/s;WD;Wind Direction;deg;TA;Temperature;C;RH;Humidity;%;PA;Pressure;mbar;Bat;Baterai;volt
+S;220801133003;WDT;SDI12
+D;220801133003;RN;1.8;WS;0*T;WD;0*T;TA;0*T;RH;0*T;PA;0*T;Bat;0*T
