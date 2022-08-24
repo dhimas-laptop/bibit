@@ -20,3 +20,4 @@ Route::get('/', [AppController::class , 'index']);
 Route::get('/login', [LoginController::class , 'index']);
 Route::get('/list-bibit', [AppController::class , 'list']);
 Route::get('/API/bibit', [ApiController::class , 'index']);
+Route::post('/API/bibit', [ApiController::class , 'store']);

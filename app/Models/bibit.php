@@ -10,4 +10,8 @@ class bibit extends Model
     use HasFactory;
 
     protected $table = 'bibit';
+
+    protected $fillable = [
+        'nama' , 'jenis' , 'jumlah'
+    ];
 }
