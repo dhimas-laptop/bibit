@@ -36,7 +36,7 @@ class ApiController extends Controller
             'jenis' => 'required',
             'jumlah' => 'required',
         ] , [
-            'nama.reequired' => 'Nama belum diisi',
+            'nama.required' => 'Nama belum diisi',
             'jenis.required' => 'Jenis belum diisi',
             'jumlah.required' => 'Jumlah belum diisi'
         ]);
