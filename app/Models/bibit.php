@@ -14,4 +14,8 @@ class bibit extends Model
     protected $fillable = [
         'nama' , 'jenis' , 'jumlah'
     ];
+
+    protected $except = [
+        '/API/bibit', //This route won't have CSRF protection
+    ];
 }
