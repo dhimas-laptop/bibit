@@ -9,7 +9,7 @@
         <p class="lead text-muted"> Dokumen tersebut antara lain :<br>
                 <strong>KTP<br></strong>
                 <strong>Fotocopy KTP<br></strong>
-                <strong>Surat Keterangan RT/RW<br></strong>
+                <strong>Surat Keterangan<br></strong>
         </p>
         
         <p>
