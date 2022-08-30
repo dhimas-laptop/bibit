@@ -37,7 +37,7 @@ class ApiController extends Controller
             'jumlah' => $request->jumlah
         ];
 
-        if(bibit::insert($data)>0){
+        if(bibit::create($data)>0){
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Input"
