@@ -20,7 +20,7 @@ class ApiController extends Controller
         return response([
             'title' => 'Daftar Bibit Tersedia',
             'data'  => $data
-        ]);
+        ], 200);
     }
 
     /**
@@ -41,12 +41,12 @@ class ApiController extends Controller
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Input"
-            ]);
+            ], 200);
         }else{
             return response([
                 'status' => false,
                 'message' => 'Data gagal di input'
-            ]);
+            ], 400);
         }
     }
 
@@ -81,12 +81,12 @@ class ApiController extends Controller
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Update"
-            ]);
+            ], 200);
         }else{
             return response([
                 'status' => false,
                 'message' => 'Data gagal di Update'
-            ]);
+            ], 400);
         }
     }
 
@@ -105,12 +105,12 @@ class ApiController extends Controller
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Hapus"
-            ]);
+            ], 200);
         }else{
             return response([
                 'status' => false,
                 'message' => 'Data gagal di Hapus'
-            ]);
+            ], 400);
         }
     }
 }
