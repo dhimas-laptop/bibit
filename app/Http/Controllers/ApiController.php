@@ -31,42 +31,12 @@ class ApiController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all , [
-            'nama' => 'required',
-            'jenis' => 'required',
-            'jumlah' => 'required',
-        ] , [
-            'nama.required' => 'Nama belum diisi',
-            'jenis.required' => 'Jenis belum diisi',
-            'jumlah.required' => 'Jumlah belum diisi'
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Silahkan Isi Bidang Yang Kosong',
-                'data'    => $validator->errors()
-            ],401);
-        } else {
-            $post = bibit::insert([
-                'nama'     => $request->input('nama'),
-                'jenis'   => $request->input('jenis'),
-                'jumlah'   => $request->input('jumlah'),
-            ]);
-
-            if ($post) {
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Post Berhasil Disimpan!',
-                ], 200);
-            } else {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Post Gagal Disimpan!',
-                ], 401);
-            }
-        }
-
+        $data = [
+            'nama' => $request->nama,
+            'jenis' => $request->jenis,
+            'jumlah' => $request->jumlah
+        ];
+        return $data;
     }
 
     /**
