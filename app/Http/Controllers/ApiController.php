@@ -36,7 +36,18 @@ class ApiController extends Controller
             'jenis' => $request->jenis,
             'jumlah' => $request->jumlah
         ];
-        return $data;
+
+        if(bibit::insert($data)>0){
+            return response([
+                'status' => true,
+                'message' => "Data Berhasil Di Input"
+            ]);
+        }else{
+            return response([
+                'status' => false,
+                'message' => 'Data gagal di input'
+            ]);
+        }
     }
 
     /**
@@ -57,9 +68,26 @@ class ApiController extends Controller
      * @param  \App\Models\bibit  $bibit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, bibit $bibit)
+    public function update(Request $request)
     {
-        //
+        $data = [
+            'nama' => $request->nama,
+            'jenis' => $request->jenis,
+            'jumlah' => $request->jumlah
+        ];
+        $id = $request->id;
+
+        if(bibit::table('bibit')->where('id', $id)->update($data) > 0) {
+            return response([
+                'status' => true,
+                'message' => "Data Berhasil Di Update"
+            ]);
+        }else{
+            return response([
+                'status' => false,
+                'message' => 'Data gagal di Update'
+            ]);
+        }
     }
 
     /**
@@ -68,8 +96,21 @@ class ApiController extends Controller
      * @param  \App\Models\bibit  $bibit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(bibit $bibit)
+    public function destroy(Request $request)
     {
-        //
+        
+        $id = $request->id;
+
+        if(bibit::table('bibit')->where('id', $id)->delete() > 0) {
+            return response([
+                'status' => true,
+                'message' => "Data Berhasil Di Hapus"
+            ]);
+        }else{
+            return response([
+                'status' => false,
+                'message' => 'Data gagal di Hapus'
+            ]);
+        }
     }
 }
