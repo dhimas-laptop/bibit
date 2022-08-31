@@ -96,10 +96,8 @@ class ApiController extends Controller
      * @param  \App\Models\bibit  $bibit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        
-        $id = $request->id;
 
         if(bibit::table('bibit')->where('id', $id)->delete() > 0) {
             return response([
