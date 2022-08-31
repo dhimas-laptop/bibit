@@ -12,6 +12,8 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        '/API/bibit'
+        '/API/bibit',
+        '/API/bibit/hapus/{$id}',
+        '/API/bibit/update/{$id}'
     ];
 }
