@@ -13,7 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/API/bibit',
-        '/API/bibit/hapus',
+        '/API/bibit/delete',
         '/API/bibit/update'
     ];
 }
