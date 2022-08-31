@@ -21,5 +21,5 @@ Route::get('/login', [LoginController::class , 'index']);
 Route::get('/list-bibit', [AppController::class , 'list']);
 Route::get('/API/bibit', [ApiController::class , 'index']);
 Route::post('/API/bibit', [ApiController::class , 'store']);
-Route::post('/API/bibit/update/{id}', [ApiController::class , 'update']);
-Route::post('/API/bibit/delete/{id}', [ApiController::class , 'destroy']);
+Route::post('/API/bibit/update', [ApiController::class , 'update']);
+Route::post('/API/bibit/delete', [ApiController::class , 'destroy']);
