@@ -77,7 +77,7 @@ class ApiController extends Controller
         ];
         $id = $request->id;
 
-        if(bibit::table('bibit')->where('id', $id)->update($data) > 0) {
+        if(bibit::select('*')->where('id', $id)->update($data) > 0) {
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Update"
@@ -99,8 +99,8 @@ class ApiController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->id;
-        
-        if(bibit::table('bibit')->where('id', $id)->delete() > 0) {
+
+        if(bibit::select('*')->where('id', $id)->delete() > 0) {
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Hapus"
