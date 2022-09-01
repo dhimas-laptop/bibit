@@ -34,7 +34,8 @@ class ApiController extends Controller
         $data = [
             'nama' => $request->nama,
             'jenis' => $request->jenis,
-            'jumlah' => $request->jumlah
+            'jumlah' => $request->jumlah,
+            'file' => $request->file
         ];
 
         if(bibit::create($data)>0){
@@ -73,7 +74,8 @@ class ApiController extends Controller
         $data = [
             'nama' => $request->nama,
             'jenis' => $request->jenis,
-            'jumlah' => $request->jumlah
+            'jumlah' => $request->jumlah,
+            'file' => $request->file
         ];
         $id = $request->id;
 
@@ -99,7 +101,7 @@ class ApiController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->id;
-
+        
         if(bibit::select('*')->where('id', $id)->delete() > 0) {
             return response([
                 'status' => true,

@@ -16,7 +16,7 @@ class AppController extends Controller
     public function list()
     {
         $list = bibit::get();
-        
+
         return view('daftar-bibit',['bibit' => $list]);
     }
 }
