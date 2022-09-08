@@ -14,7 +14,7 @@
         
         <p>
           <a href="/list-bibit" class="btn btn-secondary my-2">Lihat jenis Bibit yang tersedia</a>
-          <a href="#" class="btn btn-success my-2">Pesan Bibit Sekarang</a>
+          <a href="/order-bibit" class="btn btn-success my-2">Pesan Bibit Sekarang</a>
         </p>
       </div>
     </div>

@@ -18,4 +18,9 @@ class bibit extends Model
     protected $except = [
         '/API/bibit', //This route won't have CSRF protection
     ];
+
+    public function order()
+    {
+        return $this->belongsToMany(order::class);
+    }
 }

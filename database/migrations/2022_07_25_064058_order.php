@@ -17,10 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('luas');
             $table->text('alamat_lahan');
-            $table->text('kegiatan');
             $table->decimal('latitude', 10 , 2);
-            $table->decimal('longtitude', 11 , 2);
-            $table->foreignId('bibit_id')->constrained('bibit');
+            $table->decimal('longitude', 11 , 2);
             $table->foreignId('pemohon_id')->constrained('pemohon');
             $table->timestamps();
         });

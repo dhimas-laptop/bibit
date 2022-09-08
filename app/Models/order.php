@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class order extends Model
 {
     use HasFactory;
+    protected $fillable = [
+            'luas',
+            'alamat_lahan',
+            'latitude',
+            'longitude',
+    ];
+
+    public function bibit()
+    {
+        return $this->belongsToMany(bibit::class);
+    }
+
+    public function pemohon()
+    {
+        return $this->hasMany(pemohon::class);
+    }
 }
