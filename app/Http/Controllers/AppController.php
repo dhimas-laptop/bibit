@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\bibit;
 use App\Models\order;
 use App\Models\pemohon;
-use App\Models\transaksi;
+use App\Models\rincian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -59,7 +59,7 @@ class AppController extends Controller
 
         for ($i=0; $i < $total; $i++) { 
             $transaksi = $request->bibit[$i];
-            transaksi::create([
+            rincian::create([
                 'bibit_id' => $transaksi,
                 'order_id' => $id_order
             ]);
