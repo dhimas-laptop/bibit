@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/adminlte.min.css') }}">
     <link href="{{asset('vendor/fontawesome/css/all.min.css')}}" rel="stylesheet">
-    <script src="{{ asset('added/sweetalert2.min.js')}}"></script>
+    <link href="{{ asset('added/sweetalert2.min.css') }}" rel="stylesheet"/>
     @yield('css')
 </head>
 <body>
@@ -32,7 +32,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js"></script>
     <script src="{{ asset('vendor/fontawesome/js/all.min.js')}}"></script>
     <script src="{{ asset('vendor/adminlte/js/adminlte.min.js')}}"></script>
-    
+    <script src="{{ asset('vendor/adminlte/js/sweetalert2.min.js')}}"></script>
     
     @yield('script')
     @include('alert')
