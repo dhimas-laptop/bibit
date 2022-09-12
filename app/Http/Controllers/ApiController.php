@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\bibit;
+use App\Models\order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -113,5 +114,15 @@ class ApiController extends Controller
                 'message' => 'Data gagal di Hapus'
             ], 400);
         }
+    }
+
+    public function order()
+    {
+        $data = order::get();
+
+        return response([
+            'status' => true,
+            'data' => $data
+        ]);
     }
 }

@@ -25,3 +25,7 @@ Route::get('/API/bibit', [ApiController::class , 'index']);
 Route::post('/API/bibit', [ApiController::class , 'store']);
 Route::post('/API/bibit/update', [ApiController::class , 'update']);
 Route::post('/API/bibit/delete', [ApiController::class , 'destroy']);
+
+// order
+
+Route::get('/API/order', [ApiController::class , 'order']);
