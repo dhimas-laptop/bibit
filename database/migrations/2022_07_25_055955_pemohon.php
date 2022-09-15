@@ -17,11 +17,13 @@ return new class extends Migration
             $table->id();
             $table->enum('satuan', ['kelompok','perorangan']);
             $table->string('nama');
-            $table->string('kelompok');
+            $table->string('kelompok')->nullable();
             $table->text('alamat');
             $table->text('no_telp');
             $table->text('kegiatan');
             $table->timestamps();
+
+            
         });
     }
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('bibit_id')->constrained('bibit');
             $table->foreignId('order_id')->constrained('order');
+            $table->integer('jumlah');
             $table->timestamps();
         });
     }

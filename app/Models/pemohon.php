@@ -19,4 +19,9 @@ class pemohon extends Model
         'no_telp',
         'kegiatan',
     ];
+
+    public function order()
+    {
+        return $this->hasOne(bibit::class);
+    }
 }

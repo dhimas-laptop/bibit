@@ -16,7 +16,8 @@ class order extends Model
             'alamat_lahan',
             'latitude',
             'longitude',
-            'pemohon_id'
+            'pemohon_id',
+            'total'
     ];
 
     public function bibit()
@@ -26,6 +27,6 @@ class order extends Model
 
     public function pemohon()
     {
-        return $this->hasMany(pemohon::class);
+        return $this->hasOne(pemohon::class);
     }
 }

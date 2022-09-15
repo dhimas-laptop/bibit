@@ -11,7 +11,8 @@ class rincian extends Model
     protected $table = 'rincian';
     protected $fillable = [
         'order_id',
-        'bibit_id'
+        'bibit_id',
+        'jumlah',
     ];
     
 }

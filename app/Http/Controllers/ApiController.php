@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\bibit;
 use App\Models\order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
@@ -118,8 +119,13 @@ class ApiController extends Controller
 
     public function order()
     {
-        $data = order::get();
-
+        $data = DB::table('order')
+                ->join('pemohon','order.pemohon_id','=','pemohon.id')
+                ->join('rincian', 'order.id', '=' , 'rincian.order_id')
+                ->join('bibit', 'bibit.id', '=' , 'rincian.bibit_id')
+                ->get();
+        
+        return $data;
         return response([
             'status' => true,
             'data' => $data

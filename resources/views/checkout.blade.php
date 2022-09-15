@@ -90,11 +90,13 @@
                             <div class="form-group row">
                                 <label class="col-form-label" style="width: 100px">Bibit</label>
                                     <select class="form-control mx-1" name="bibit[]" style="width: 200px">
+                                        <option>--Pilih Bibit--</option>
                                         @foreach ( $bibit as $data)
                                         <option value="{{ $data->id }}">{{ $data->nama}}</option>
                                         @endforeach
                                     </select>
-                                    <div style="width: 120px"><input id="counter" type="number" class="form-control" name="jumlah[]" placeholder="jumlah"></div>
+                            
+                                    <div style="width: 120px"><input type="number" class="form-control counter" name="jumlah[]" placeholder="jumlah"></div>
                                 <label style="margin: 5px">batang</label>
                                 <button type="button" class="btn btn-primary col-sm-2 mx-2 add"><i class="fa fa-plus-square"></i> tambah lagi</button>
                             </div>
@@ -104,16 +106,16 @@
                                 <div class="form-group row">
                                     <label class="col-form-label" style="width: 100px">Bibit</label>
                                     <select class="form-control mx-1" name="bibit[]" style="width: 200px">
+                                        <option value="">--Pilih Bibit--</option>
                                         @foreach ( $bibit as $data)
                                         <option value="{{ $data->id }}">{{ $data->nama}}</option>
                                         @endforeach
                                     </select>
-                                    <div style="width: 120px"><input id="counter" type="number" class="form-control" name="jumlah[]" placeholder="jumlah"></div>
+                                    <div style="width: 120px"><input type="number" class="form-control counter" name="jumlah[]" placeholder="jumlah"></div>
                                     <label style="margin: 5px">batang</label>  
                                     <button type="button" class="btn btn-danger col-sm-2 mx-2 remove"><i class="fa fa-trash"></i> hapus</button>
                                 </div>
                             </div>
-                            
 
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" onclick="window.history.back()">kembali</button>
@@ -131,4 +133,18 @@
 @section('script')
     <script src="{{ asset('added/select.js')}}"></script>
     <script src="{{ asset('added/map.js')}}"></script>
+    {{-- <script>
+        $('.counter').change(function () { 
+           
+            var total = 0;
+            
+            var element = document.getElementsByClassName('counter').value;
+            
+           
+            
+            document.getElementById('total').value = element;
+
+        }); 
+           
+    </script> --}}
 @endsection
