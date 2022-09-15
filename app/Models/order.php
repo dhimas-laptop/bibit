@@ -17,7 +17,8 @@ class order extends Model
             'latitude',
             'longitude',
             'pemohon_id',
-            'total'
+            'total',
+            'status'
     ];
 
     public function bibit()

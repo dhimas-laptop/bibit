@@ -52,17 +52,18 @@ class AppController extends Controller
             'jumlah' => 'required'
         ]);
         $order['total'] = array_sum($request->jumlah);
-        
+       
         pemohon::create($pemohon);
         $id_pemohon = pemohon::max('id');
         
         $order['pemohon_id'] = $id_pemohon;
         
         $order['total'] = array_sum($request->jumlah);
+        $order['status'] = "pending";
         order::create($order);
         
         $id_order = order::max('id');
-        $total = count($order['bibit']);
+        $total = count($request->bibit) - 1;
         
         for ($i=0; $i < $total; $i++) { 
             $transaksi = $request->bibit[$i];
