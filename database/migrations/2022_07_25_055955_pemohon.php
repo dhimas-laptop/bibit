@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pemohon', function (Blueprint $table) {
             $table->id();
             $table->enum('satuan', ['kelompok','perorangan']);
-            $table->string('nama');
+            $table->string('nama_pemohon');
             $table->string('kelompok')->nullable();
             $table->text('alamat');
             $table->text('no_telp');

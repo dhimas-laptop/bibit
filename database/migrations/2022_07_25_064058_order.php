@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('luas');
             $table->text('alamat_lahan');
-            $table->decimal('latitude', 10 , 2);
-            $table->decimal('longitude', 11 , 2);
+            $table->decimal('latitude', 10 , 6);
+            $table->decimal('longitude', 11 , 6);
             $table->integer('total');
             $table->string('status');
             $table->foreignId('pemohon_id')->constrained('pemohon')->onDelete('cascade');

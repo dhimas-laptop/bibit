@@ -34,7 +34,7 @@ class AppController extends Controller
         
        $pemohon = $request->validate([
                 'satuan' => 'required',
-                'nama' => 'required',
+                'nama_pemohon' => 'required',
                 'kelompok' => 'nullable',
                 'alamat' => 'required',
                 'no_telp' => 'required',
