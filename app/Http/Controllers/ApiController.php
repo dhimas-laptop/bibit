@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\bibit;
 use App\Models\order;
+use App\Models\rincian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -125,10 +126,54 @@ class ApiController extends Controller
                 ->join('bibit', 'bibit.id', '=' , 'rincian.bibit_id')
                 ->get();
         
-        return $data;
         return response([
             'status' => true,
             'data' => $data
         ]);
+    }
+
+    public function update_order(Request $request)
+    {
+        $data = [
+            'status' => $request->status
+        ];
+        $id = $request->id;
+
+        if(order::select('*')->where('id', $id)->update($data) > 0) {
+            return response([
+                'status' => true,
+                'message' => "Data Berhasil Di Update"
+            ], 200);
+        }else{
+            return response([
+                'status' => false,
+                'message' => 'Data gagal di Update'
+            ], 400);
+        }
+    }
+
+    public function hapus_order(Request $request)
+    {
+        $id = $request->id;
+
+        if (rincian::select('*')->where('id_order', $id)->delete() > 0) {
+            if(order::select('*')->where('id', $id)->delete() > 0) {
+                return response([
+                    'status' => true,
+                    'message' => "Data Berhasil Di Update"
+                ], 200);
+            }else{
+                return response([
+                    'status' => false,
+                    'message' => 'Data gagal di Update'
+                ], 400);
+            }
+        }else{
+            return response([
+                'status' => false,
+                'message' => 'Data gagal di Update'
+            ], 400);
+        }
+
     }
 }

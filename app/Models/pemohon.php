@@ -13,7 +13,7 @@ class pemohon extends Model
 
     protected $fillable = [
        'satuan',
-        'nama',
+        'nama_pemohon',
         'kelompok',
         'alamat',
         'no_telp',
