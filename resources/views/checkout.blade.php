@@ -42,7 +42,7 @@
                             </div> 
                             <div class="form-group row kelompok" style="display: none">
                                 <label class="col-sm-2 col-form-label">Nama Ketua Kelompok</label>
-                                <input type="text" class="col-sm-10 form-control  @error('nama') is-invalid @enderror" style="text-transform: uppercase" name="nama_pemohon" placeholder="Nama Ketua Kelompok">
+                                <input type="text" class="col-sm-10 form-control  @error('nama') is-invalid @enderror" style="text-transform: uppercase" name="nama_ketua" placeholder="Nama Ketua Kelompok">
                             </div>  
                             <div class="form-group row" id="tutup">
                                 <label class="col-sm-2 col-form-label">Nama Lengkap</label>

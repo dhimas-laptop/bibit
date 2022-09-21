@@ -31,16 +31,19 @@ class AppController extends Controller
 
     public function post_order(Request $request)
     {
-        
+    
        $pemohon = $request->validate([
                 'satuan' => 'required',
-                'nama_pemohon' => 'required',
-                'kelompok' => 'nullable',
                 'alamat' => 'required',
                 'no_telp' => 'required',
                 'kegiatan' => 'nullable',
                ]);
-               
+        if ($request->satuan === "kelompok") {
+            $pemohon['nama_pemohon'] = $request->nama_ketua;
+            $pemohon['kelompok'] = $request->kelompok;
+        }else{
+            $pemohon['nama_pemohon'] = $request->nama_pemohon;
+        }        
         $order = $request->validate([
                  'luas' => 'required',
                  'alamat_lahan' => 'required',
