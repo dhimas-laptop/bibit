@@ -55,17 +55,6 @@ class ApiController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\bibit  $bibit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(bibit $bibit)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -82,7 +71,7 @@ class ApiController extends Controller
         ];
         $id = $request->id;
 
-        if(bibit::select('*')->where('id', $id)->update($data) > 0) {
+        if(DB::table('bibit')->where('id', $id)->update($data) > 0) {
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Update"
@@ -134,12 +123,10 @@ class ApiController extends Controller
 
     public function update_order(Request $request)
     {
-        $data = [
-            'status' => $request->status
-        ];
+    
         $id = $request->id;
 
-        if(order::select('*')->where('id', $id)->update($data) > 0) {
+        if(order::select('*')->where('id', $id)->update() > 0) {
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Update"
