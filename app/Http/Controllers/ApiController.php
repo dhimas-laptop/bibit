@@ -55,6 +55,29 @@ class ApiController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\bibit  $bibit
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+
+        $data = bibit::findOrFail($id);
+        if($data === 0){
+            return response([
+                'title' => 'Daftar Bibit Tersedia',
+                'data'  => $data
+            ], 200);
+        }else{
+            return response([
+                'status' => false,
+                'message' => 'Data gagal di input'
+            ], 400);
+        }
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -71,7 +94,7 @@ class ApiController extends Controller
         ];
         $id = $request->id;
 
-        if(DB::table('bibit')->where('id', $id)->update($data) > 0) {
+        if(bibit::select('*')->where('id', $id)->update($data) > 0) {
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Update"
