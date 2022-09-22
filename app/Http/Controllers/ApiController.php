@@ -64,7 +64,7 @@ class ApiController extends Controller
     {
 
         $data = bibit::findOrFail($id);
-        if($data === 0){
+        if($data !== 0){
             return response([
                 'title' => 'Daftar Bibit Tersedia',
                 'data'  => $data
