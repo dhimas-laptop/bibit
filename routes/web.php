@@ -31,4 +31,5 @@ Route::post('/API/bibit/delete', [ApiController::class , 'destroy']);
 
 Route::get('/API/order', [ApiController::class , 'order']);
 Route::post('/API/order', [ApiController::class , 'update_order']);
+Route::post('/API/order/hapus', [ApiController::class , 'hapus_order']);
 Route::get('/test', [AppController::class , 'test']);
