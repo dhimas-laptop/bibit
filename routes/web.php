@@ -23,7 +23,7 @@ Route::get('/order-bibit', [AppController::class , 'order']);
 Route::post('/order-bibit', [AppController::class , 'post_order']);
 Route::get('/API/bibit', [ApiController::class , 'index']);
 Route::post('/API/bibit', [ApiController::class , 'store']);
-Route::post('/API/bibit/{id}', [ApiController::class , 'show']);
+Route::get('/API/bibit/{id}', [ApiController::class , 'show']);
 Route::post('/API/bibit/update', [ApiController::class , 'update']);
 Route::post('/API/bibit/delete', [ApiController::class , 'destroy']);
 
