@@ -146,10 +146,11 @@ class ApiController extends Controller
 
     public function update_order(Request $request)
     {
+        $data = [
+            'status' => $request->status,
+        ];
         
-        $id = $request->id;
-        $update = order::find($id);
-        if($update->update($request->status) > 0) {
+        if(order::where('id', $request->id)->update(['status' => $request->status]) > 0) {
             return response([
                 'status' => true,
                 'message' => "Data Berhasil Di Update"
