@@ -162,10 +162,9 @@ class ApiController extends Controller
 
     public function hapus_order(Request $request)
     {
-        $id = $request->id;
 
-        if (rincian::select('*')->where('id_order', $id)->delete() > 0) {
-            if(order::select('*')->where('id', $id)->delete() > 0) {
+        if (rincian::where('id_order', $request->id)->delete() > 0) {
+            if(order::where('id', $request->id)->delete() > 0) {
                 return response([
                     'status' => true,
                     'message' => "Data Berhasil Di Update"
