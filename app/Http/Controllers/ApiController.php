@@ -163,7 +163,7 @@ class ApiController extends Controller
     public function hapus_order(Request $request)
     {
 
-        if (rincian::where('id_order', $request->id)->delete() > 0) {
+        if (rincian::where('order_id', $request->id)->delete() > 0) {
             if(order::where('id', $request->id)->delete() > 0) {
                 return response([
                     'status' => true,
