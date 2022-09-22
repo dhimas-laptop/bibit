@@ -149,7 +149,7 @@ class ApiController extends Controller
         $data = [
             'status' => $request->status,
         ];
-        
+        return $request->status;
         if(order::where('id', $request->id)->update(['status' => $request->status]) > 0) {
             return response([
                 'status' => true,
