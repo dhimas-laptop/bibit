@@ -116,7 +116,7 @@ class ApiController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->id;
-        
+        rincian::where('bibit_id', $id)->delete();
         if(bibit::select('*')->where('id', $id)->delete() > 0) {
             return response([
                 'status' => true,
