@@ -16,6 +16,7 @@ class VerifyCsrfToken extends Middleware
         '/API/bibit/delete',
         '/API/bibit/update',
         '/API/order',
-        '/API/order/hapus'
+        '/API/order/hapus',
+        '/API/order-filter'
     ];
 }
