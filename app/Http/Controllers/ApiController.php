@@ -187,7 +187,7 @@ class ApiController extends Controller
     public function order_filter(Request $request)
     {
         $data = DB::table('order')
-                ->where('id', $request->id)
+                ->where('order_id', $request->id)
                 ->join('pemohon','order.pemohon_id','=','pemohon.id')
                 ->join('rincian', 'order.id', '=' , 'rincian.order_id')
                 ->join('bibit', 'bibit.id', '=' , 'rincian.bibit_id')
