@@ -1,4 +1,4 @@
-	var map = L.map('map').setView([0.903451, -255.509514], 9);
+	var map = L.map('map').setView([0.903451, 104.47023], 9);
     var lokasi;
     
     map.on('click', function(e) {
