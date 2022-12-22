@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rincian', function (Blueprint $table) {
+        Schema::create('bibit_order', function (Blueprint $table) {
             $table->id();
             $table->foreignId('bibit_id')->constrained('bibit');
             $table->foreignId('order_id')->constrained('order');
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rincian');
+        Schema::dropIfExists('bibit_order');
     }
 };

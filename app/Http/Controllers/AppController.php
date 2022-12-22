@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\bibit;
 use App\Models\order;
 use App\Models\pemohon;
-use App\Models\rincian;
+use App\Models\bibit_order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -72,7 +72,7 @@ class AppController extends Controller
             $transaksi = $request->bibit[$i];
             $jumlah = $request->jumlah[$i];
 
-            rincian::create([
+            bibit_order::create([
                 'bibit_id' => $transaksi,
                 'order_id' => $id_order,
                 'jumlah' => $jumlah,

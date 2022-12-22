@@ -22,6 +22,6 @@ class pemohon extends Model
 
     public function order()
     {
-        return $this->hasOne(bibit::class);
+        return $this->hasMany(order::class);
     }
 }

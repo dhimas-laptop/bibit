@@ -21,13 +21,14 @@ class order extends Model
             'status'
     ];
 
+    public function pemohon()
+    {
+        return $this->belongsTo(pemohon::class);
+    }
+
     public function bibit()
     {
         return $this->belongsToMany(bibit::class);
     }
 
-    public function pemohon()
-    {
-        return $this->hasOne(pemohon::class);
-    }
 }

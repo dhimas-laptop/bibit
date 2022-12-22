@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\bibit;
 use App\Models\order;
-use App\Models\rincian;
+use App\Models\pemohon;
+use App\Models\bibit_order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -116,7 +117,7 @@ class ApiController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->id;
-        rincian::where('bibit_id', $id)->delete();
+        bibit_order::where('bibit_id', $id)->delete();
         if(bibit::select('*')->where('id', $id)->delete() > 0) {
             return response([
                 'status' => true,
@@ -134,8 +135,8 @@ class ApiController extends Controller
     {
         $data = DB::table('order')
                 ->join('pemohon','order.pemohon_id','=','pemohon.id')
-                ->join('rincian', 'order.id', '=' , 'rincian.order_id')
-                ->join('bibit', 'bibit.id', '=' , 'rincian.bibit_id')
+                ->join('bibit_order', 'order.id', '=' , 'bibit_order.order_id')
+                ->join('bibit', 'bibit.id', '=' , 'bibit_order.bibit_id')
                 ->get();
         
         return response([
@@ -163,7 +164,7 @@ class ApiController extends Controller
     public function hapus_order(Request $request)
     {
 
-        if (rincian::where('order_id', $request->id)->delete() > 0) {
+        if (bibit_order::where('order_id', $request->id)->delete() > 0) {
             if(order::where('id', $request->id)->delete() > 0) {
                 return response([
                     'status' => true,
@@ -186,13 +187,41 @@ class ApiController extends Controller
 
     public function order_filter(Request $request)
     {
-        $data = DB::table('order')
-                ->where('order_id', $request->id)
-                ->join('pemohon','order.pemohon_id','=','pemohon.id')
-                ->join('rincian', 'order.id', '=' , 'rincian.order_id')
-                ->join('bibit', 'bibit.id', '=' , 'rincian.bibit_id')
-                ->get();
+        // $data = DB::table('order')
+        //         ->select(
+        //             'order.id as order_id',
+        //             'pemohon.id as pemohon_id',
+        //             'bibit_order.id as bibit_order_id',
+        //             'bibit.id as bibit.id',
+        //             'luas',
+        //             'alamat_lahan',
+        //             'latitude',
+        //             'longitude',
+        //             'total',
+        //             'status',
+        //             'satuan',
+        //             'nama_pemohon',
+        //             'kelompok',
+        //             'alamat',
+        //             'no_telp',
+        //             'kegiatan',
+        //             'bibit.jumlah as jumlah_bibit',
+        //             'bibit_order.jumlah as jumlah_bibit_order',
+        //             'nama',
+        //             'jenis',
+        //             'file'
+        //             )
+                    
+        //         ->join('pemohon','order.pemohon_id','=','pemohon.id')
+        //         ->join('bibit_order', 'order.id', '=' , 'bibit_order.order_id')
+        //         ->join('bibit', 'bibit.id', '=' , 'bibit_order.bibit_id')
+        //         ->where('order_id', $request->id)
+        //         ->distinct()
+        //         ->get();
 
+        $data = order::all();
+        
+        return $data;
         return response([
             'status' => true,
             'data' => $data
