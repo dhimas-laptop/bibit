@@ -21,8 +21,10 @@ return new class extends Migration
             $table->decimal('longitude', 11 , 6);
             $table->integer('total');
             $table->string('status');
-            $table->foreignId('pemohon_id')->constrained('pemohon')->onDelete('cascade');
+            $table->unsignedBigInteger('pemohon_id');
             $table->timestamps();
+
+            $table->foreign('pemohon_id')->references('id')->on('pemohon');
         });
     }
 

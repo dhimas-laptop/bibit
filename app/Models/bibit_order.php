@@ -15,5 +15,13 @@ class bibit_order extends Model
         'jumlah',
     ];
 
+    public function order()
+    {
+        return $this->belongsTo(order::class);
+    }
    
+    public function bibit()
+    {
+        return $this->belongsTo(bibit::class);
+    }
 }

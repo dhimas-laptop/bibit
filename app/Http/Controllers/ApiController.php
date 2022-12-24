@@ -133,15 +133,21 @@ class ApiController extends Controller
 
     public function order()
     {
-        $data = DB::table('order')
-                ->join('pemohon','order.pemohon_id','=','pemohon.id')
-                ->join('bibit_order', 'order.id', '=' , 'bibit_order.order_id')
-                ->join('bibit', 'bibit.id', '=' , 'bibit_order.bibit_id')
-                ->get();
+        
+        $pemohon = pemohon::get();
+        $order = order::get();
+        $detail = bibit_order::get();
+        $bibit = bibit::get();
+        
         
         return response([
             'status' => true,
-            'data' => $data
+            'data' => [
+                'pemohon' => $pemohon,
+                'order' => $order,
+                'detail' => $detail,
+                'bibit' => $bibit
+            ]
         ]);
     }
 
@@ -187,41 +193,36 @@ class ApiController extends Controller
 
     public function order_filter(Request $request)
     {
-        // $data = DB::table('order')
-        //         ->select(
-        //             'order.id as order_id',
-        //             'pemohon.id as pemohon_id',
-        //             'bibit_order.id as bibit_order_id',
-        //             'bibit.id as bibit.id',
-        //             'luas',
-        //             'alamat_lahan',
-        //             'latitude',
-        //             'longitude',
-        //             'total',
-        //             'status',
-        //             'satuan',
-        //             'nama_pemohon',
-        //             'kelompok',
-        //             'alamat',
-        //             'no_telp',
-        //             'kegiatan',
-        //             'bibit.jumlah as jumlah_bibit',
-        //             'bibit_order.jumlah as jumlah_bibit_order',
-        //             'nama',
-        //             'jenis',
-        //             'file'
-        //             )
-                    
-        //         ->join('pemohon','order.pemohon_id','=','pemohon.id')
-        //         ->join('bibit_order', 'order.id', '=' , 'bibit_order.order_id')
-        //         ->join('bibit', 'bibit.id', '=' , 'bibit_order.bibit_id')
-        //         ->where('order_id', $request->id)
-        //         ->distinct()
-        //         ->get();
-
-        $data = order::all();
+        $data = DB::table('pemohon')
+                ->select(
+                    'order.id as order_id',
+                    'pemohon.id as pemohon_id',
+                    'bibit_order.id as bibit_order_id',
+                    'bibit.id as bibit.id',
+                    'luas',
+                    'alamat_lahan',
+                    'latitude',
+                    'longitude',
+                    'total',
+                    'status',
+                    'satuan',
+                    'nama_pemohon',
+                    'kelompok',
+                    'alamat',
+                    'no_telp',
+                    'kegiatan',
+                    'bibit.jumlah as jumlah_bibit',
+                    'bibit_order.jumlah as jumlah_bibit_order',
+                    'nama',
+                    'jenis',
+                    'file'
+                    )
+                ->where('order_id', $request->id) 
+                ->join('order','pemohon.id','=','order.pemohon_id')
+                ->join('bibit_order', 'order.id', '=' , 'bibit_order.order_id')
+                ->join('bibit', 'bibit.id', '=' , 'bibit_order.bibit_id')
+                ->get();
         
-        return $data;
         return response([
             'status' => true,
             'data' => $data

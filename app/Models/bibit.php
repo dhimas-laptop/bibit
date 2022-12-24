@@ -19,8 +19,8 @@ class bibit extends Model
         '/API/bibit', //This route won't have CSRF protection
     ];
 
-    public function order()
+    public function detail()
     {
-        return $this->belongsToMany(order::class);
+        return $this->hasMany(bibit_order::class);
     }
 }

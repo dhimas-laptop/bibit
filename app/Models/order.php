@@ -26,9 +26,9 @@ class order extends Model
         return $this->belongsTo(pemohon::class);
     }
 
-    public function bibit()
+    public function detail()
     {
-        return $this->belongsToMany(bibit::class);
+        return $this->hasMany(bibit_order::class);
     }
 
 }

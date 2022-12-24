@@ -55,7 +55,7 @@ class AppController extends Controller
             'jumlah' => 'required'
         ]);
         $order['total'] = array_sum($request->jumlah);
-       
+        
         pemohon::create($pemohon);
         $id_pemohon = pemohon::max('id');
         
@@ -78,7 +78,7 @@ class AppController extends Controller
                 'jumlah' => $jumlah,
             ]);
         }
-
+        
         return redirect()->back()->with('success', 'bibit berhasil di pesan');
     }
 }

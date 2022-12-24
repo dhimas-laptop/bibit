@@ -20,8 +20,8 @@ class pemohon extends Model
         'kegiatan',
     ];
 
-    public function order()
+    public function bibit()
     {
-        return $this->hasMany(order::class);
+        return $this->hasManyThrough(bibit::class, order::class);
     }
 }
