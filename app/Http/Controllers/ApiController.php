@@ -38,7 +38,7 @@ class ApiController extends Controller
         $data = [
             'nama' => $request->nama,
             'jenis' => $request->jenis,
-            'total' => $request->jumlah,
+            'total' => $request->total,
             'file' => $request->file
         ];
        
@@ -90,7 +90,7 @@ class ApiController extends Controller
         $data = [
             'nama' => $request->nama,
             'jenis' => $request->jenis,
-            'total' => $request->jumlah,
+            'total' => $request->total,
             'file' => $request->file
         ];
         $id = $request->id;
