@@ -135,19 +135,20 @@ class ApiController extends Controller
     {
         
         $pemohon = pemohon::get();
-        $order = order::get();
-        $detail = bibit_order::get();
-        $bibit = bibit::get();
+        foreach ($pemohon as $a) {
+            $order = $a->order;
+            foreach ($order as $b) {
+                $detail = $b->detail;
+                foreach ($detail as $c) {
+                    $bibit = $b->bibit;
+                }
+            }
+        }
         
         
         return response([
             'status' => true,
-            'data' => [
-                'pemohon' => $pemohon,
-                'order' => $order,
-                'detail' => $detail,
-                'bibit' => $bibit
-            ]
+            'data' => $pemohon
         ]);
     }
 
