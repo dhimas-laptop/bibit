@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('jenis');
-            $table->integer('jumlah');
+            $table->integer('total');
             $table->text('file');
             $table->timestamps();
         });

@@ -38,7 +38,7 @@ class ApiController extends Controller
         $data = [
             'nama' => $request->nama,
             'jenis' => $request->jenis,
-            'jumlah' => $request->jumlah,
+            'total' => $request->jumlah,
             'file' => $request->file
         ];
        
@@ -90,7 +90,7 @@ class ApiController extends Controller
         $data = [
             'nama' => $request->nama,
             'jenis' => $request->jenis,
-            'jumlah' => $request->jumlah,
+            'total' => $request->jumlah,
             'file' => $request->file
         ];
         $id = $request->id;
@@ -193,39 +193,20 @@ class ApiController extends Controller
 
     public function order_filter(Request $request)
     {
-        $data = DB::table('pemohon')
-                ->select(
-                    'order.id as order_id',
-                    'pemohon.id as pemohon_id',
-                    'bibit_order.id as bibit_order_id',
-                    'bibit.id as bibit.id',
-                    'luas',
-                    'alamat_lahan',
-                    'latitude',
-                    'longitude',
-                    'total',
-                    'status',
-                    'satuan',
-                    'nama_pemohon',
-                    'kelompok',
-                    'alamat',
-                    'no_telp',
-                    'kegiatan',
-                    'bibit.jumlah as jumlah_bibit',
-                    'bibit_order.jumlah as jumlah_bibit_order',
-                    'nama',
-                    'jenis',
-                    'file'
-                    )
-                ->where('order_id', $request->id) 
-                ->join('order','pemohon.id','=','order.pemohon_id')
-                ->join('bibit_order', 'order.id', '=' , 'bibit_order.order_id')
-                ->join('bibit', 'bibit.id', '=' , 'bibit_order.bibit_id')
-                ->get();
-        
+        $pemohon = pemohon::where('id', $request->id)->get();
+        $order = order::where('pemohon_id', $request->id)->get();
+        foreach ($order as $key) {
+            $detail = $key->detail;
+            foreach ($detail as $q) {
+                $q->bibit;
+            }
+        }
         return response([
             'status' => true,
-            'data' => $data
+            'data' => [
+                'pemohon' => $pemohon,
+                'order' => $order,
+            ]
         ]);
     }
 }
