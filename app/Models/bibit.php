@@ -12,7 +12,7 @@ class bibit extends Model
     protected $table = 'bibit';
 
     protected $fillable = [
-        'nama' , 'jenis' , 'jumlah','file'
+        'nama' , 'jenis' , 'total','file'
     ];
 
     protected $except = [
