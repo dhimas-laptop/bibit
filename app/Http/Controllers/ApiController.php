@@ -140,7 +140,7 @@ class ApiController extends Controller
             foreach ($order as $b) {
                 $detail = $b->detail;
                 foreach ($detail as $c) {
-                    $bibit = $b->bibit;
+                    $c->bibit;
                 }
             }
         }
