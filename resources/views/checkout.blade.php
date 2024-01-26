@@ -106,7 +106,7 @@
                                 <div class="form-group row">
                                     <label class="col-form-label" style="width: 100px">Bibit</label>
                                     <select class="form-control mx-1" name="bibit[]" style="width: 200px">
-                                        <option value="">--Pilih Bibit--</option>
+                                        <option>--Pilih Bibit--</option>
                                         @foreach ( $bibit as $data)
                                         <option value="{{ $data->id }}">{{ $data->nama}}</option>
                                         @endforeach

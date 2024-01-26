@@ -79,6 +79,36 @@ class AppController extends Controller
             ]);
         }
         
+        $pesan = 'Ada Pesanan Bibit atas nama: '.$pemohon['nama_pemohon'].' Buka Sipuda di link www.bpdas-sjd.id';
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => 'https://api.fonnte.com/send',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => array(
+        'target' => '085640390499',
+        'message' => $pesan,
+        ),
+        CURLOPT_HTTPHEADER => array(
+            'Authorization: 2VftvjU_zfCipMMmwE3p'
+        ),
+        ));
+        
+        curl_exec($curl);
+
         return redirect()->back()->with('success', 'bibit berhasil di pesan');
+    }
+
+    function test()
+    {
+       
+        
     }
 }
