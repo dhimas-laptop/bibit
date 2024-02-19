@@ -134,7 +134,7 @@ class ApiController extends Controller
     public function order()
     {
         
-        $pemohon = pemohon::get();
+        $pemohon = pemohon::orderBy('id', 'ASC')->get();
         foreach ($pemohon as $a) {
             $order = $a->order;
             foreach ($order as $b) {
