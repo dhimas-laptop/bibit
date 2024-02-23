@@ -173,10 +173,18 @@ class ApiController extends Controller
 
         if (bibit_order::where('order_id', $request->id)->delete() > 0) {
             if(order::where('id', $request->id)->delete() > 0) {
+               if (pemohon::where('id', $request->id)->delete() > 0) {
                 return response([
                     'status' => true,
                     'message' => "Data Berhasil Di Update"
                 ], 200);
+               }else{
+                return response([
+                    'status' => false,
+                    'message' => 'Data gagal di Update'
+                ], 400);
+            } 
+                
             }else{
                 return response([
                     'status' => false,
