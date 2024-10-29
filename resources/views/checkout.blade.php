@@ -74,11 +74,11 @@
                             </div> 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Latitude</label>
-                                <input type="text" class="col-sm-10 form-control  @error('latitude') is-invalid @enderror" style="text-transform: uppercase" name="latitude" id="lat" value="" readonly>
+                                <input type="text" class="col-sm-10 form-control  @error('latitude') is-invalid @enderror" style="text-transform: uppercase" name="latitude" id="lat" value="">
                             </div> 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Longitude</label>
-                                <input type="text" class="col-sm-10 form-control  @error('longitude') is-invalid @enderror" style="text-transform: uppercase" name="longitude" id="lng" value="" readonly>
+                                <input type="text" class="col-sm-10 form-control  @error('longitude') is-invalid @enderror" style="text-transform: uppercase" name="longitude" id="lng" value="">
                             </div> 
                             
                             <div id="map"></div>
