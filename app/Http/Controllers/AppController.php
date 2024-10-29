@@ -97,7 +97,7 @@ class AppController extends Controller
         'message' => $pesan,
         ),
         CURLOPT_HTTPHEADER => array(
-            'Authorization: 2VftvjU_zfCipMMmwE3p'
+            'Authorization: JamYS35263TrC6pMu69g'
         ),
         ));
         
