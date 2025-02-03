@@ -79,7 +79,7 @@ class AppController extends Controller
             ]);
         }
         
-        $pesan = 'Ada Pesanan Bibit atas nama: '.$pemohon['nama_pemohon'].' Buka Sipuda di link www.bpdas-sjd.id';
+        $pesan = 'Ada Pesanan Bibit atas nama: '.$pemohon['nama_pemohon'].' Nomor: '.$pemohon['no_telp'].' Buka Sipuda di link www.bpdas-sjd.id';
 
         $curl = curl_init();
 
